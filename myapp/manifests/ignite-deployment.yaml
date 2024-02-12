@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ignite-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ignite-app
+  template:
+    metadata:
+      labels:
+        app: ignite-app
+    spec:
+      containers:
+      - name: ignite-app
+        image: fajmayor/ignite-app:v1
+        ports:
+        - containerPort: 3000
+        env:
+        - name: PORT
+          value: "3000"
+        imagePullPolicy: Always
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: ignite-service
+spec:
+  selector:
+    app: ignite-app
+  ports:
+    - port: 3000
+      targetPort: 3000
+  type: LoadBalancer
