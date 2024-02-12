@@ -30,6 +30,7 @@ fi
 
 chmod +x ./kind
 sudo cp ./kind /usr/local/bin/kind
+rm -rf kind
 
 # Prompt user for the cluster name
 read -rp "Enter the name for the cluster to be created: " cluster_name
