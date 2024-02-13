@@ -29,7 +29,7 @@ else
 fi
 
 chmod +x ./kind
-sudo cp ./kind /usr/local/bin/kind
+sudo mv ./kind /usr/local/bin/kind
 rm -rf kind
 
 # Prompt user for the cluster name

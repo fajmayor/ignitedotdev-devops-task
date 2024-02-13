@@ -20,9 +20,13 @@ Run `kind-cluster.sh` from your terminal to deploy KIND cluster.
 ## Deploy a sample Node.js app using terraform
 1. The `myapp` directory contains `hello world` express Node.js files, including `index.js`, `package.json`, `package-lock.json`, and its `Dockerfile`.
 
+    #### Build the Dockerfile using `docker build` and push the image to Dockerhub
+
 2. The `manifests` directory contains the Kubernetes deployment manifest file `ignite-deployment.yaml` to deploy the Node.js application to the KIND cluster.
 
 3. `main.tf` contains the Terraform code to deploy the manifest into the KIND cluster using the `kubectl` Terraform provider.
+
+    #### NB: Change the provider config_path value to reflect your kubeconfigure name.
 
 4. Also, `main.tf` includes the resource blocks for monitoring and observability for the Prometheus cluster using the `kube-prometheus stack` and the Terraform Helm provider.
 
